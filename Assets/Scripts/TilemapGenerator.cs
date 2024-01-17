@@ -5,11 +5,10 @@ using UnityEngine.Tilemaps;
 
 public class TilemapGenerator : MonoBehaviour
 {
-    private int width = 64;
-    private int height = 128;
+    private int width = 32;
+    private int height = 32;
 
     private float magnification = 15.0f;
-
 
     private Vector3 startPos = Vector3.zero;
 
@@ -69,9 +68,9 @@ public class TilemapGenerator : MonoBehaviour
 
     private void GenerateTerrain()
     {
-        for (int i = 0; i < width; i++)
+        for (int i = -width; i < width; i++)
         {
-            for (int j = 0; j < height; j++)
+            for (int j = -height; j < height; j++)
             {
                 int noise = GenerateNoise(i + XPlayerLocation, j + YPlayerLocation);
 
