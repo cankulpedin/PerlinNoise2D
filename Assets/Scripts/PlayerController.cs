@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -10,8 +8,9 @@ public class PlayerController : MonoBehaviour
     {
         float horizontalInput = Input.GetAxis("Horizontal");
         float verticalInput = Input.GetAxis("Vertical");
-
-        Vector3 movement = new Vector3(horizontalInput, verticalInput);
+        
+        // TODO caprazlara giderken hiz kok 2 oluyor olabilir, buna bak
+        Vector3 movement = new Vector3(horizontalInput, verticalInput).normalized;
         transform.Translate(movement * Time.deltaTime * speed);
     }
 }
