@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class ChasePlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private GameObject player;
+
+    private float speed = 2.0f;
+    private void Start()
     {
-        
+        player = GameObject.FindGameObjectWithTag("Player");
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        Vector3 playerLocation = player.transform.position;
+        Vector3 direction = playerLocation - transform.position;
+        Vector3 normalizedDirection = Vector3.Normalize(direction);
+
+        transform.Translate(normalizedDirection * speed * Time.deltaTime);
     }
 }

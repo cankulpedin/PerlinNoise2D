@@ -18,7 +18,6 @@ public class TilemapGenerator : MonoBehaviour
     public List<Tile> stoneTiles = new List<Tile>();
     public List<Tile> interiorTiles = new List<Tile>();
 
-
     Hashtable tileLocations;
 
     Dictionary<int, List<Tile>> dict = new Dictionary<int, List<Tile>>();
@@ -30,6 +29,13 @@ public class TilemapGenerator : MonoBehaviour
 
     private int XPlayerLocation => (int)Mathf.Floor(player.transform.position.x);
     private int YPlayerLocation => (int)Mathf.Floor(player.transform.position.y);
+
+    private void Awake()
+    {
+        Vector3 playerSpawnPos = new Vector3(32f, 32f, -1);
+
+        player = Instantiate(player, playerSpawnPos, Quaternion.identity);
+    }
 
     private void Start()
     {

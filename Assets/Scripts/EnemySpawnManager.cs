@@ -4,7 +4,7 @@ public class EnemySpawnManager : MonoBehaviour
 {
     public GameObject enemy;
 
-    [SerializeField] private int maxEnemyCount = 5;
+    private int maxEnemyCount = 5;
     private int currentEnemyCount = 0;
 
     private float spawnOffset = 8.0f;
